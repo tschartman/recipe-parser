@@ -5,7 +5,6 @@ from flask import Flask, request, jsonify
 import json
 
 app = Flask(__name__)
-app.config["DEBUG"] = True
 
 def extractIngredients(soup):
     found = False
@@ -49,6 +48,7 @@ def home():
         'directions': extractDirections(soup)
     }
     return jsonify(recipe)
-
-app.run()
+    
+if __name__=="__main__":
+    app.run()
 
