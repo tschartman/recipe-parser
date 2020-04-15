@@ -27,7 +27,7 @@ def extractIngredients(soup):
 def extractDirections(soup):
     found = False
     try:
-        tags = soup.find(text=re.compile('Directions')).parent
+        tags = soup.find(text=re.compile('(Dierctions|Instructions|Method)')).parent
         lists = []
         while not found:
             if(tags.findAll('li')):
