@@ -46,7 +46,7 @@ def home():
     response = requests.get(data['url'])
     soup = BeautifulSoup(response.text, "html.parser")
     recipe =  {
-        'ingeredients': extractIngredients(soup),
+        'ingredients': extractIngredients(soup),
         'directions': extractDirections(soup)
     }
     return jsonify(recipe)
