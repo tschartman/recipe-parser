@@ -3,8 +3,10 @@ import requests
 import re
 from flask import Flask, request, jsonify
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 def extractIngredients(soup):
     found = False
@@ -48,7 +50,7 @@ def home():
         'directions': extractDirections(soup)
     }
     return jsonify(recipe)
-    
+
 if __name__=="__main__":
     app.run()
 
